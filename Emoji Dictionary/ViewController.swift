@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tblvMain: UITableView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        tblvMain.dataSource = self
+        tblvMain.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
