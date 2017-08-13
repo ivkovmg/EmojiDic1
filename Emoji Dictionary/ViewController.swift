@@ -23,6 +23,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 10  //this is returning the interger 10 for the function that is asking how many rows should the table populate
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "😀"
+        return cell
+        
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
