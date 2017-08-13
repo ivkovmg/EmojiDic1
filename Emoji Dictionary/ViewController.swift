@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tblvMain: UITableView!
     
-    
+    var emojis = ["😀","💩","😂","😺","🤡","😎","🤑"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +25,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10  //this is returning the interger 10 for the function that is asking how many rows should the table populate
+        //return 10  //this is returning the interger 10 for the function that is asking how many rows should the table populate
+        
+        return emojis.count //this returns the number of items in the array called emojis
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        print(indexPath.row)
         let cell = UITableViewCell()
-        cell.textLabel?.text = "😀"
+        cell.textLabel?.text = emojis[indexPath.row]
         return cell
         
         
