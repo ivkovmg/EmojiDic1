@@ -20,7 +20,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tblvMain.dataSource = self
         tblvMain.delegate = self
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
