@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tblvMain: UITableView!
     
-    var emojis = ["😀","💩","😂","😺","🤡","😎","🤑"]
+    var emojis : [Emoji] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tblvMain.dataSource = self
         tblvMain.delegate = self
+        emojis = makeEmojiArray()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,7 +34,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         print(indexPath.row)
         let cell = UITableViewCell()
-        cell.textLabel?.text = emojis[indexPath.row]
+        let emoji = emojis[indexPath.row]
+        cell.textLabel?.text = emoji.strEmoji
         return cell
         
     }
@@ -47,7 +49,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let defVC = segue.destination as! emojiDetail_ViewController
-        defVC.emoji = sender as! String
+        defVC.emoji = sender as! Emoji
     }
     
     
@@ -56,6 +58,51 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
 
+    func makeEmojiArray() -> [Emoji]{
+        let emoji1 = Emoji()
+            emoji1.strEmoji = "😀"
+            emoji1.strBirthYear = 2010
+            emoji1.strCat = "Smiley"
+            emoji1.strDef = "This man be smiling"
+        
+        let emoji2 = Emoji()
+            emoji2.strEmoji = "💩"
+            emoji2.strBirthYear = 2011
+            emoji2.strCat = "Smiley"
+            emoji2.strDef = "This is crap!"
+        
+        let emoji3 = Emoji()
+            emoji3.strEmoji = "😂"
+            emoji3.strBirthYear = 2009
+            emoji3.strCat = "Smiley"
+            emoji3.strDef = "That's so funny i can'y stop laughing!!!"
+        
+        let emoji4 = Emoji()
+            emoji4.strEmoji = "😺"
+            emoji4.strBirthYear = 2015
+            emoji4.strCat = "Animal"
+            emoji4.strDef = "Cool cats are hard to come by!"
+        
+        let emoji5 = Emoji()
+            emoji5.strEmoji = "🤡"
+            emoji5.strBirthYear = 2014
+            emoji5.strCat = "Smiley"
+            emoji5.strDef = "Not all clowns are scary."
+        
+        let emoji6 = Emoji()
+            emoji6.strEmoji = "😎"
+            emoji6.strBirthYear = 2013
+            emoji6.strCat = "Smiley"
+            emoji6.strDef = "Are you too cool for school?"
 
+        let emoji7 = Emoji()
+            emoji7.strEmoji = "🤑"
+            emoji7.strBirthYear = 2012
+            emoji7.strCat = "Smiley"
+            emoji7.strDef = "Money, money, money, money.....Monnneyyyy!"
+        
+        return [emoji1, emoji2, emoji3, emoji4, emoji5, emoji6, emoji7]
+
+    }
 }
 

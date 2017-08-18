@@ -10,32 +10,20 @@ import UIKit
 
 class emojiDetail_ViewController: UIViewController {
 
-    var emoji = "NO EMOJI"
+    var emoji = Emoji()
     
+    @IBOutlet weak var lblCat: UILabel!
     @IBOutlet weak var defLabel: UILabel!
     @IBOutlet weak var emojiLabel: UILabel!
+    @IBOutlet weak var lblYear: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        emojiLabel.text = emoji
-        if emoji == "😀"{
-            defLabel.text = "This man be smiling"
-        } else if emoji == "💩"{
-            defLabel.text = "This is crap!"
-        }else if emoji == "😂"{
-            defLabel.text = "That's so funny i can'y stop laughing!!!"
-        }else if emoji == "😺"{
-            defLabel.text = "Cool cats are hard to come by!"
-        }else if emoji == "🤡"{
-            defLabel.text = "Not all clowns are scary."
-        }else if emoji == "😎"{
-            defLabel.text = "Are yo too cool for school?"
-        }else if emoji == "🤑"{
-            defLabel.text = "Money, money, money, money.....Monnneyyyy!"
-        }else {
-            defLabel.text = "There's somthing missing....your face."
-        }
+        emojiLabel.text = emoji.strEmoji
+        lblYear.text = "Orgination Date: \(emoji.strBirthYear)"
+        lblCat.text = "Category: \(emoji.strCat)"
+        defLabel.text = emoji.strDef
         
     }
 
